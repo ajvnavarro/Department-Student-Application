@@ -1,0 +1,14 @@
+<!-- for ui -->
+
+<!-- <% %> erb format -->
+<% content_for :title, "New student" %>
+
+<h1>New student</h1>
+<!-- equal sign means to be displayed -->
+<%= render "form", student: @student %>
+
+<br>
+
+<div>
+  <%= link_to "Back to students", students_path %>
+</div>
