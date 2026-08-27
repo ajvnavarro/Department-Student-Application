@@ -3,6 +3,23 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @student %>
+<% if @student.classlists.any? %>
+  <h3><br>List of Sections: </h3>
+  <table style="width: 50%;">
+    <thead>
+      <tr>
+        <th style="width: 33%;">Name</th>
+      </tr>
+    </thead>
+  <tbody>
+    <% @student.classlists.map(&:section).uniq.each do |section| %>
+      <tr>
+        <td style="width: 33%;"><%= section.name %></td>
+      </tr>
+      <% end %>
+  </tbody>       
+  </table>
+<% end %>
 
 <div>
   <%= link_to "Edit this student", edit_student_path(@student) %> |
