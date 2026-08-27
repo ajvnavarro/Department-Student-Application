@@ -9,12 +9,16 @@
     <thead>
       <tr>
         <th style="width: 33%;">Name</th>
+        <th style="width: 33%;">Room</th>
+        <th style="width: 33%;">Timeslot</th>
       </tr>
     </thead>
   <tbody>
     <% @student.classlists.map(&:section).uniq.each do |section| %>
       <tr>
         <td style="width: 33%;"><%= section.name %></td>
+        <td style="width: 33%;"><%= section.room %></td>
+        <td style="width: 33%;"><%= section.timeslot %></td>
       </tr>
       <% end %>
   </tbody>       
