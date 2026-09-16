@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_09_16_075206) do
+ActiveRecord::Schema[8.0].define(version: 2026_09_16_131211) do
   create_table "classlists", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "student_id", null: false
     t.bigint "section_id", null: false
@@ -27,7 +27,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_16_075206) do
     t.datetime "updated_at", null: false
     t.integer "studentsCount", default: 0
     t.integer "teachersCount", default: 0
-    t.integer "laboratory", default: 0
   end
 
   create_table "laboratories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -46,6 +45,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_16_075206) do
     t.bigint "subject_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "students_count", default: 0
     t.index ["subject_id"], name: "index_sections_on_subject_id"
   end
 
@@ -70,6 +70,9 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_16_075206) do
     t.bigint "teacher_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sections_count", default: 0
+    t.integer "number_of_units", default: 3
+    t.float "per_unit_rate", limit: 53, default: 1000.0
     t.index ["teacher_id"], name: "index_subjects_on_teacher_id"
   end
 
