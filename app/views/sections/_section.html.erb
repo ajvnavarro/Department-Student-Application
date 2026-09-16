@@ -1,4 +1,15 @@
 <div id="<%= dom_id section %>">
+
+  <p>
+    <strong>Subject:</strong>
+    <%= section.subject.name %>
+  </p>
+
+  <p>
+    <strong>Teacher:</strong>
+    <%= section.subject.teacher.name %>
+  </p>
+
   <p>
     <strong>Name:</strong>
     <%= section.name %>
@@ -14,9 +25,6 @@
     <%= section.timeslot %>
   </p>
 
-  <p>
-    <strong>Subject:</strong>
-    <%= section.subject.name %>
-  </p>
+  
 
 </div>
