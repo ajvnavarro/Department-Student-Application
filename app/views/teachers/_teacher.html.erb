@@ -1,22 +1,13 @@
-<div id="<%= dom_id teacher %>">
-  <p>
-    <strong>Name:</strong>
-    <%= teacher.name %>
-  </p>
+<dl class="row mb-0" id="<%= dom_id teacher %>">
+  <dt class="col-5 text-muted fw-normal">Name</dt>
+  <dd class="col-7 fw-semibold"><%= teacher.name %></dd>
 
-  <p>
-    <strong>Email:</strong>
-    <%= teacher.email %>
-  </p>
+  <dt class="col-5 text-muted fw-normal">Email</dt>
+  <dd class="col-7"><%= teacher.email %></dd>
 
-  <p>
-    <strong>Specialization:</strong>
-    <%= teacher.specialization %>
-  </p>
+  <dt class="col-5 text-muted fw-normal">Students</dt>
+  <dd class="col-7"><%= teacher.specialization %></dd>
 
-  <p>
-    <strong>Department:</strong>
-    <%= teacher.department.name %>
-  </p>
-
-</div>
+  <dt class="col-5 text-muted fw-normal">Teachers</dt>
+  <dd class="col-7 mb-0"><%= teacher.department.name %></dd>
+</dl>
