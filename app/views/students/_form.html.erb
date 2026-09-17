@@ -1,5 +1,9 @@
 <!--input and output like response ordisplay of words-->
 
+<div class="card d-flex p-2 text-center position-relative border-dark mb-3">
+  <div class="card-header text-bg-dark mb-3"">
+    <h1><%= title %></h1>
+  </div>
 <%= form_with(model: student) do |form| %>
   <% if student.errors.any? %>
     <div style="color: red">
@@ -13,31 +17,31 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="input-group mb-3">
+    <%= form.label :name, class: "input-group-text", id: "basic-addon1" %>
+    <%= form.text_field :name, class:"form-control", placeholder: "Full Name" %>
   </div>
 
-  <div>
-    <%= form.label :year_level, style: "display: block" %>
-    <%= form.number_field :year_level %>
+  <div class="input-group mb-3">
+    <%= form.label :year_level, class: "input-group-text", id: "basic-addon1" %>
+    <%= form.number_field :year_level, class:"form-control", placeholder: "Year Level" %>
   </div>
 
-  <div>
-    <%= form.label :program, style: "display: block" %>
-    <%= form.text_field :program %>
+  <div class="input-group mb-3">
+    <%= form.label :program, class: "input-group-text", id: "basic-addon1" %>
+    <%= form.text_field :program, class:"form-control", placeholder: "Program" %>
   </div>
 
-  <div>
-    <%= form.label :department_id, style: "display: block" %>
+  <div class="input-group mb-3">
+    <%= form.label :department_id, class: "input-group-text", id: "basic-addon1" %>
     <%= form.collection_select :department_id,
                                 Department.order(:name),
                                 :id,
                                 :name,
-                                { prompt: "Select a department"} %>
+                                { prompt: "Select a department"}, class: "btn btn-outline-secondary dropdown-toggle", type:"button", type: "text", class: "form-control"%>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <div class="d-grid gap-2 mx-auto p-2">
+    <%= form.submit class: "btn btn-success" %>
+</div>  
 <% end %>

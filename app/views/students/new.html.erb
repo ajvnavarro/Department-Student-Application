@@ -3,12 +3,11 @@
 <!-- <% %> erb format -->
 <% content_for :title, "New student" %>
 
-<h1>New student</h1>
 <!-- equal sign means to be displayed -->
-<%= render "form", student: @student %>
+<%= render "form", student: @student, title: "New Student" %>
 
 <br>
 
-<div>
-  <%= link_to "Back to students", students_path %>
+<div class="d-grid gap-2 p-2"">
+  <%= link_to "Back to students", students_path, class: "btn btn-primary"%>
 </div>
