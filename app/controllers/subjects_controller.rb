@@ -21,14 +21,21 @@ class SubjectsController < ApplicationController
 
   # POST /subjects or /subjects.json
   def create
+    teacher = Teacher.find_by(id: params[:from_teacher])
     @subject = Subject.new(subject_params)
 
     respond_to do |format|
       if @subject.save
-        format.html { redirect_to @subject, notice: "Subject was successfully created." }
+        format.html { redirect_to teacher || @subject, notice: "Subject was successfully created." }
         format.json { render :show, status: :created, location: @subject }
       else
-        format.html { render :new, status: :unprocessable_content }
+        format.html do
+          if teacher
+            redirect_to teacher, alert: @subject.errors.full_messages.to_sentence, status: :see_other
+          else
+            render :new, status: :unprocessable_content
+          end
+        end
         format.json { render json: @subject.errors, status: :unprocessable_content }
       end
     end
@@ -49,10 +56,11 @@ class SubjectsController < ApplicationController
 
   # DELETE /subjects/1 or /subjects/1.json
   def destroy
+    teacher = Teacher.find_by(id: params[:from_teacher])
     @subject.destroy!
 
     respond_to do |format|
-      format.html { redirect_to subjects_path, notice: "Subject was successfully destroyed.", status: :see_other }
+      format.html { redirect_to teacher || subjects_path, notice: "Subject was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
   end
