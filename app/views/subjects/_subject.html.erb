@@ -1,12 +1,7 @@
-<div id="<%= dom_id subject %>">
-  <p>
-    <strong>Name:</strong>
-    <%= subject.name %>
-  </p>
+<dl class="row mb-0" id="<%= dom_id subject %>">
+  <dt class="col-5 text-muted fw-normal">Name</dt>
+  <dd class="col-7 fw-semibold"><%= subject.name %></dd>
 
-  <p>
-    <strong>Teacher:</strong>
-    <%= subject.teacher.name %>
-  </p>
-
-</div>
+  <dt class="col-5 text-muted fw-normal">Teacher</dt>
+  <dd class="col-7"><%= subject.teacher.name %></dd>
+</dl>
