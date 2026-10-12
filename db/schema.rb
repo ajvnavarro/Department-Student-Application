@@ -25,8 +25,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_17_084311) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "studentsCount", default: 0
-    t.integer "teachersCount", default: 0
   end
 
   create_table "laboratories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -56,9 +54,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_17_084311) do
     t.bigint "department_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "tuitionFee", limit: 53, default: 0.0
-    t.integer "subjectsCount", default: 0
-    t.integer "numberOfUnits", default: 0
     t.float "tuition_fee", limit: 53, default: 0.0
     t.integer "subjects_count", default: 0
     t.integer "number_of_units", default: 0
